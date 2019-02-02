@@ -17,8 +17,8 @@ export class CoreConfigConstants {
     static app_id = 'com.skilla.bccmoodlemobile';
     static appname = 'GBIAcademy';
     static desktopappname = 'GBIAcademy Desktop';
-    static versioncode = 35244;
-    static versionname = '3.5.244';
+    static versioncode = 35245;
+    static versionname = '3.5.245';
     static cache_expiration_time = 300000;
     static default_lang = 'it';
     static languages: any = {
@@ -30,9 +30,9 @@ export class CoreConfigConstants {
     static demo_sites = '';
     static gcmpn = '';
     static customurlscheme = 'axbcc';
-    static siteurl = 'http://svilmdlaxapp.amicucci.local/bcc/';
+    static siteurl = 'https://gbiacademy.bcc.it/';
     static skipssoconfirmation = false;
     static forcedefaultlanguage = false;
     static privacypolicy = 'https://gbiacademy.bcc.it/afmood/privacy.html';
-    static compilationtime = 1549098587485;
+    static compilationtime = 1549099944386;
 }
