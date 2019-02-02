@@ -263,16 +263,22 @@ var AddonAxificationsListPage = /** @class */ (function () {
         var _this = this;
         var site = this.sitesProvider.getCurrentSite();
         // Get username and fullname.  
-        /// BCC SVIL:
-        var AUTH_USER_KEY_wsToken = "8c98e14eef68957f1aacb7451388b4e2";
-        /// BCC TEST: 
-        //var AUTH_USER_KEY_wsToken = "eb15b5da943a5546296e027bee29f1b1"; 
-        /// BCC PROD: 
-        //var AUTH_USER_KEY_wsToken = "6c7eb64adb7bbcadbedf13dbdd85ae99"; 
         var userId = site.getUserId();
         var fullName = site.getInfo().fullname;
         var userName = site.getInfo().username;
         var siteUrl = site.getURL();
+        /// BCC PROD:  
+        var AUTH_USER_KEY_wsToken = "6c7eb64adb7bbcadbedf13dbdd85ae99";
+        /// BCC SVIL:
+        var isItSvil = siteUrl.indexOf("svilmdlaxapp");
+        if (isItSvil != -1) {
+            AUTH_USER_KEY_wsToken = "8c98e14eef68957f1aacb7451388b4e2";
+        }
+        /// BCC TEST:
+        var isItTest = siteUrl.indexOf("test");
+        if (isItTest != -1) {
+            AUTH_USER_KEY_wsToken = "eb15b5da943a5546296e027bee29f1b1";
+        }
         var wantsURL = siteUrl + "/local/axperformance/splash.php";
         var functionOnWS = 'auth_userkey_request_login_url';
         //var responseFromWs = this.getMyLoginUrl(userName,wantsURL,AUTH_USER_KEY_wsToken,siteUrl,functionOnWS);
