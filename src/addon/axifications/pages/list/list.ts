@@ -55,7 +55,7 @@ export class AddonAxificationsListPage {
   
     /** 
      * View loaded.
-     */  
+     */ 
     ionViewDidLoad(): void { 
 
 		var site = this.sitesProvider.getCurrentSite()
