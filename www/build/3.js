@@ -243,10 +243,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Page that displays the list of axifications.
  */
 var AddonAxificationsListPage = /** @class */ (function () {
-    function AddonAxificationsListPage(navParams, _http, sitesProvider, axificationsProvider) {
+    function AddonAxificationsListPage(navParams, _http, sitesProvider, axificationsProvider, platform) {
         this._http = _http;
         this.sitesProvider = sitesProvider;
         this.axificationsProvider = axificationsProvider;
+        this.platform = platform;
         this.hideUntil = false;
         this.axifications = [];
         this.axificationsLoaded = false;
@@ -267,7 +268,12 @@ var AddonAxificationsListPage = /** @class */ (function () {
         var fullName = site.getInfo().fullname;
         var userName = site.getInfo().username;
         var siteUrl = site.getURL();
-        /// BCC PROD:  
+        /// Hide system bar status space for android devices:
+        if (!(this.platform.is('ios'))) {
+            var styleforAndroid = $('<style>#embeded_iframe { position: inherit; }</style>');
+            $('html > head').append(styleforAndroid);
+        }
+        /// BCC PROD:   
         var AUTH_USER_KEY_wsToken = "6c7eb64adb7bbcadbedf13dbdd85ae99";
         /// BCC SVIL:
         var isItSvil = siteUrl.indexOf("svilmdlaxapp");
@@ -381,10 +387,10 @@ var AddonAxificationsListPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-addon-axifications-list',template:/*ion-inline-start:"C:\wamp\www\BCC_mobapp\bcc_custom_mma\src\addon\axifications\pages\list\list.html"*/'﻿	<div class="core-loading-container" *ngIf="!hideUntil">\n\n		<span class="core-loading-spinner spinner-ax-valutazione">\n\n			<ion-spinner></ion-spinner>\n\n		</span>\n\n	</div>	 \n\n    <core-iframe id="embeded_iframe" class="core-iframe iframe" scrolling="yes"  [src]="safeLoginUrl" *ngIf="hideUntil"></core-iframe>\n\n\n\n	\n\n'/*ion-inline-end:"C:\wamp\www\BCC_mobapp\bcc_custom_mma\src\addon\axifications\pages\list\list.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_sites__["a" /* CoreSitesProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_sites__["a" /* CoreSitesProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_axifications__["a" /* AddonAxificationsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_axifications__["a" /* AddonAxificationsProvider */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_sites__["a" /* CoreSitesProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_sites__["a" /* CoreSitesProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_axifications__["a" /* AddonAxificationsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_axifications__["a" /* AddonAxificationsProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */]) === "function" && _e || Object])
     ], AddonAxificationsListPage);
     return AddonAxificationsListPage;
-    var _a, _b, _c, _d;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=list.js.map

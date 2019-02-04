@@ -13,7 +13,7 @@
 // limitations under the License.
  
 import { Component } from '@angular/core';
-import { IonicPage, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams, Platform } from 'ionic-angular';
 import { CoreSitesProvider } from '@providers/sites';
 import { AddonAxificationsProvider } from '../../providers/axifications';
 
@@ -48,7 +48,8 @@ export class AddonAxificationsListPage {
 			navParams: NavParams, 
 			private _http: HttpClient,
             private sitesProvider: CoreSitesProvider,			
-			private axificationsProvider: AddonAxificationsProvider) 
+			private axificationsProvider: AddonAxificationsProvider,
+			private platform: Platform) 
 	{
 			
     }
@@ -66,7 +67,13 @@ export class AddonAxificationsListPage {
 		var userName = site.getInfo().username;
 		var siteUrl = site.getURL();
 		
-		/// BCC PROD:  
+		/// Hide system bar status space for android devices:
+		if (!(this.platform.is('ios'))) {
+			var styleforAndroid = $('<style>#embeded_iframe { position: inherit; }</style>');
+			$('html > head').append(styleforAndroid);
+		}
+		
+		/// BCC PROD:   
 		var AUTH_USER_KEY_wsToken = "6c7eb64adb7bbcadbedf13dbdd85ae99"; 
 		/// BCC SVIL:
 		var isItSvil = siteUrl.indexOf("svilmdlaxapp");

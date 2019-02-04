@@ -30,9 +30,9 @@ export class CoreConfigConstants {
     static demo_sites = '';
     static gcmpn = '';
     static customurlscheme = 'axbcc';
-    static siteurl = 'https://gbiacademy.bcc.it/';
+    static siteurl = 'http://svilmdlaxapp.amicucci.local/bcc/';
     static skipssoconfirmation = false;
     static forcedefaultlanguage = false;
     static privacypolicy = 'https://gbiacademy.bcc.it/afmood/privacy.html';
-    static compilationtime = 1549099944386;
+    static compilationtime = 1549281242540;
 }
