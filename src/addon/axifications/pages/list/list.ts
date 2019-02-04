@@ -72,7 +72,7 @@ export class AddonAxificationsListPage {
 			var styleforAndroid = $('<style>#embeded_iframe { position: inherit; }</style>');
 			$('html > head').append(styleforAndroid);
 		}
-		
+ 		
 		/// BCC PROD:   
 		var AUTH_USER_KEY_wsToken = "6c7eb64adb7bbcadbedf13dbdd85ae99"; 
 		/// BCC SVIL:
