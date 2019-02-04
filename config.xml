@@ -3,9 +3,9 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android = "http://schemas.android.com/apk/res/android"
         id        = "com.skilla.bccmoodlemobile"
-        versionCode = "352045"
-        android-versionCode="352045"
-        version   = "3.5.245">
+        versionCode = "352046"
+        android-versionCode="352046"
+        version   = "3.5.246">
     <name>GBIAcademy</name>
 
     <description>
@@ -17,7 +17,7 @@
     </author>
 
     <edit-config target="CFBundleShortVersionString" file="*-Info.plist" mode="merge">
-        <string>3.5.245</string>
+        <string>3.5.246</string>
     </edit-config>
 
     <gap:platform name="ios" />
